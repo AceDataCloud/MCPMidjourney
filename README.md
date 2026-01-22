@@ -52,7 +52,7 @@ uv pip install -e .
 cp .env.example .env
 
 # Edit with your API token
-echo "ACEDATA_API_TOKEN=your_token_here" > .env
+echo "ACEDATACLOUD_API_TOKEN=your_token_here" > .env
 ```
 
 ### 4. Run
@@ -78,7 +78,7 @@ Add to your Claude Desktop configuration:
     "midjourney": {
       "command": "mcp-midjourney",
       "env": {
-        "ACEDATA_API_TOKEN": "your_api_token_here"
+        "ACEDATACLOUD_API_TOKEN": "your_api_token_here"
       }
     }
   }
@@ -94,7 +94,7 @@ Or if using uv:
       "command": "uv",
       "args": ["run", "--directory", "/path/to/mcp-midjourney", "mcp-midjourney"],
       "env": {
-        "ACEDATA_API_TOKEN": "your_api_token_here"
+        "ACEDATACLOUD_API_TOKEN": "your_api_token_here"
       }
     }
   }
@@ -199,7 +199,7 @@ Claude: I'll create a video from this image.
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `ACEDATA_API_TOKEN` | API token from AceDataCloud | **Required** |
+| `ACEDATACLOUD_API_TOKEN` | API token from AceDataCloud | **Required** |
 | `ACEDATA_API_BASE_URL` | API base URL | `https://api.acedata.cloud` |
 | `MIDJOURNEY_DEFAULT_MODE` | Default generation mode | `fast` |
 | `MIDJOURNEY_REQUEST_TIMEOUT` | Request timeout in seconds | `180` |
