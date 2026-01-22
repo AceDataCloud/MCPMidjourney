@@ -200,7 +200,7 @@ Claude: I'll create a video from this image.
 | Variable | Description | Default |
 |----------|-------------|---------|
 | `ACEDATACLOUD_API_TOKEN` | API token from AceDataCloud | **Required** |
-| `ACEDATA_API_BASE_URL` | API base URL | `https://api.acedata.cloud` |
+| `ACEDATACLOUD_API_BASE_URL` | API base URL | `https://api.acedata.cloud` |
 | `MIDJOURNEY_DEFAULT_MODE` | Default generation mode | `fast` |
 | `MIDJOURNEY_REQUEST_TIMEOUT` | Request timeout in seconds | `180` |
 | `LOG_LEVEL` | Logging level | `INFO` |
