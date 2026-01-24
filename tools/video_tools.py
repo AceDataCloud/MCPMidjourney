@@ -46,7 +46,9 @@ async def midjourney_generate_video(
     ] = False,
     callback_url: Annotated[
         str | None,
-        Field(description="Webhook callback URL for asynchronous notifications. When provided, the API will call this URL when the video is generated."),
+        Field(
+            description="Webhook callback URL for asynchronous notifications. When provided, the API will call this URL when the video is generated."
+        ),
     ] = None,
 ) -> str:
     """Generate a video from text prompt and reference image using Midjourney.
@@ -113,7 +115,9 @@ async def midjourney_extend_video(
     ] = "",
     callback_url: Annotated[
         str | None,
-        Field(description="Webhook callback URL for asynchronous notifications. When provided, the API will call this URL when the video extension is complete."),
+        Field(
+            description="Webhook callback URL for asynchronous notifications. When provided, the API will call this URL when the video extension is complete."
+        ),
     ] = None,
 ) -> str:
     """Extend an existing Midjourney video to make it longer.

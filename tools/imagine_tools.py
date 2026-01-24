@@ -42,7 +42,9 @@ async def midjourney_imagine(
     ] = None,
     callback_url: Annotated[
         str | None,
-        Field(description="Webhook callback URL for asynchronous notifications. When provided, the API will call this URL when the image is generated."),
+        Field(
+            description="Webhook callback URL for asynchronous notifications. When provided, the API will call this URL when the image is generated."
+        ),
     ] = None,
 ) -> str:
     """Generate AI images from a text prompt using Midjourney.

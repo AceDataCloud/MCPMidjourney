@@ -40,7 +40,9 @@ async def midjourney_edit(
     ] = "",
     callback_url: Annotated[
         str | None,
-        Field(description="Webhook callback URL for asynchronous notifications. When provided, the API will call this URL when the edit is complete."),
+        Field(
+            description="Webhook callback URL for asynchronous notifications. When provided, the API will call this URL when the edit is complete."
+        ),
     ] = None,
 ) -> str:
     """Edit an existing image using Midjourney.
