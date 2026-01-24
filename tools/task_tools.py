@@ -72,12 +72,14 @@ async def midjourney_get_tasks_batch(
 
     for item in result.get("items", []):
         response_info = item.get("response", {})
-        lines.extend([
-            f"=== Task: {item.get('id', 'N/A')} ===",
-            f"Type: {item.get('type', 'N/A')}",
-            f"Created At: {item.get('created_at', 'N/A')}",
-            f"Success: {response_info.get('success', False)}",
-        ])
+        lines.extend(
+            [
+                f"=== Task: {item.get('id', 'N/A')} ===",
+                f"Type: {item.get('type', 'N/A')}",
+                f"Created At: {item.get('created_at', 'N/A')}",
+                f"Success: {response_info.get('success', False)}",
+            ]
+        )
 
         if "image_url" in response_info:
             lines.append(f"  Image: {response_info.get('image_url', 'N/A')}")

@@ -86,9 +86,7 @@ def mock_video_response():
 @pytest.fixture
 def mock_translate_response():
     """Mock successful translate response."""
-    return {
-        "content": "A beautiful mountain landscape at sunset, photorealistic, 8k"
-    }
+    return {"content": "A beautiful mountain landscape at sunset, photorealistic, 8k"}
 
 
 @pytest.fixture

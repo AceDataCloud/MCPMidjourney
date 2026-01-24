@@ -22,9 +22,7 @@ class Settings:
     api_token: str = field(default_factory=lambda: os.getenv("ACEDATACLOUD_API_TOKEN", ""))
 
     # Default Mode
-    default_mode: str = field(
-        default_factory=lambda: os.getenv("MIDJOURNEY_DEFAULT_MODE", "fast")
-    )
+    default_mode: str = field(default_factory=lambda: os.getenv("MIDJOURNEY_DEFAULT_MODE", "fast"))
 
     # Request Configuration
     request_timeout: float = field(

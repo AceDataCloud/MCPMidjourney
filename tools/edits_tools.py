@@ -14,9 +14,7 @@ from core.utils import format_edit_result
 async def midjourney_edit(
     image_url: Annotated[
         str,
-        Field(
-            description="URL of the image to edit. Must be a direct image URL (not a web page)."
-        ),
+        Field(description="URL of the image to edit. Must be a direct image URL (not a web page)."),
     ],
     prompt: Annotated[
         str,

@@ -99,9 +99,13 @@ class MidjourneyClient:
                             f"📊 Image generated: {result.get('image_width', 'N/A')}x{result.get('image_height', 'N/A')}"
                         )
                     elif "video_urls" in result:
-                        logger.info(f"📊 Videos generated: {len(result.get('video_urls', []))} video(s)")
+                        logger.info(
+                            f"📊 Videos generated: {len(result.get('video_urls', []))} video(s)"
+                        )
                     elif "descriptions" in result:
-                        logger.info(f"📊 Descriptions: {len(result.get('descriptions', []))} description(s)")
+                        logger.info(
+                            f"📊 Descriptions: {len(result.get('descriptions', []))} description(s)"
+                        )
                 else:
                     logger.warning(f"⚠️ API returned success=false: {result.get('error', {})}")
 
