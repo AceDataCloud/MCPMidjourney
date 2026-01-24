@@ -36,6 +36,14 @@ async def midjourney_imagine(
             description="If true, split the 2x2 grid result into 4 separate images returned via sub_image_urls."
         ),
     ] = False,
+    timeout: Annotated[
+        int | None,
+        Field(description="Timeout in seconds for the API to return data. Default is 480."),
+    ] = None,
+    callback_url: Annotated[
+        str | None,
+        Field(description="Webhook callback URL for asynchronous notifications. When provided, the API will call this URL when the image is generated."),
+    ] = None,
 ) -> str:
     """Generate AI images from a text prompt using Midjourney.
 
@@ -58,6 +66,8 @@ async def midjourney_imagine(
         translation=translation,
         split_images=split_images,
         action="generate",
+        timeout=timeout,
+        callback_url=callback_url,
     )
     return format_imagine_result(result)
 

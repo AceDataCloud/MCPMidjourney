@@ -38,6 +38,10 @@ async def midjourney_edit(
             description="Optional Base64-encoded mask image. White areas indicate regions to edit and regenerate."
         ),
     ] = "",
+    callback_url: Annotated[
+        str | None,
+        Field(description="Webhook callback URL for asynchronous notifications. When provided, the API will call this URL when the edit is complete."),
+    ] = None,
 ) -> str:
     """Edit an existing image using Midjourney.
 
@@ -63,6 +67,7 @@ async def midjourney_edit(
         "prompt": prompt,
         "mode": mode,
         "split_images": split_images,
+        "callback_url": callback_url,
     }
 
     if mask:

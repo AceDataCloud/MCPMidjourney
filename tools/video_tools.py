@@ -30,7 +30,7 @@ async def midjourney_generate_video(
     ] = DEFAULT_MODE,
     resolution: Annotated[
         VideoResolution,
-        Field(description="Video resolution. '720p' or '1080p'."),
+        Field(description="Video resolution. '720p' or '480p'."),
     ] = "720p",
     end_image_url: Annotated[
         str,
@@ -44,6 +44,10 @@ async def midjourney_generate_video(
             description="If true, generate a looping video where the end seamlessly connects to the beginning."
         ),
     ] = False,
+    callback_url: Annotated[
+        str | None,
+        Field(description="Webhook callback URL for asynchronous notifications. When provided, the API will call this URL when the video is generated."),
+    ] = None,
 ) -> str:
     """Generate a video from text prompt and reference image using Midjourney.
 
@@ -67,6 +71,7 @@ async def midjourney_generate_video(
         "mode": mode,
         "resolution": resolution,
         "loop": loop,
+        "callback_url": callback_url,
     }
 
     if end_image_url:
@@ -100,6 +105,16 @@ async def midjourney_extend_video(
         MidjourneyMode,
         Field(description="Generation mode."),
     ] = DEFAULT_MODE,
+    end_image_url: Annotated[
+        str,
+        Field(
+            description="Optional URL of an image to use as the final frame of the extended video."
+        ),
+    ] = "",
+    callback_url: Annotated[
+        str | None,
+        Field(description="Webhook callback URL for asynchronous notifications. When provided, the API will call this URL when the video extension is complete."),
+    ] = None,
 ) -> str:
     """Extend an existing Midjourney video to make it longer.
 
@@ -114,11 +129,17 @@ async def midjourney_extend_video(
     Returns:
         Task ID and extended video information including new video URLs.
     """
-    result = await client.generate_video(
-        action="extend",
-        video_id=video_id,
-        video_index=video_index,
-        prompt=prompt,
-        mode=mode,
-    )
+    payload: dict = {
+        "action": "extend",
+        "video_id": video_id,
+        "video_index": video_index,
+        "prompt": prompt,
+        "mode": mode,
+        "callback_url": callback_url,
+    }
+
+    if end_image_url:
+        payload["end_image_url"] = end_image_url
+
+    result = await client.generate_video(**payload)
     return format_video_result(result)
