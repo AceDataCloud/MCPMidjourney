@@ -61,7 +61,7 @@ Examples:
 Environment Variables:
   ACEDATACLOUD_API_TOKEN        API token from AceDataCloud (required)
   MIDJOURNEY_DEFAULT_MODE       Default mode (default: fast)
-  MIDJOURNEY_REQUEST_TIMEOUT    Request timeout in seconds (default: 180)
+  MIDJOURNEY_REQUEST_TIMEOUT    Request timeout in seconds (default: 1800)
   LOG_LEVEL                     Logging level (default: INFO)
         """,
     )
