@@ -34,7 +34,7 @@ ImagineAction = Literal[
 VideoAction = Literal["generate", "extend"]
 
 # Video resolution options
-VideoResolution = Literal["720p", "1080p"]
+VideoResolution = Literal["480p", "720p"]
 
 # Default mode
 DEFAULT_MODE: MidjourneyMode = "fast"
